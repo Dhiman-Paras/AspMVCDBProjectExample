@@ -1,0 +1,19 @@
+﻿@model DBProject.Models.Category
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/LayoutPage1.cshtml";
+}
+
+<h2>Edit</h2>
+
+<form class="form" action="/Category/Edit/@Model.CategoryID" method="post">
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <input type="hidden" name="CategoryID" value="@Model.CategoryID" />
+            <input type="text" name="CategoryName" value="@Model.CategoryName" class="form-control" />
+        </div>
+    </div>
+    <input type="submit" class="btn bg-success" />
+    <a href="/Category/Index" class="btn bg-danger">Cancle</a>
+</form>

@@ -1,0 +1,82 @@
+﻿@* detials page of Product Controller*@
+@model DBProject.Models.Product
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/LayoutPage1.cshtml";
+}
+
+<h2>Details</h2>
+<a href="/Product/Index" class="bg-primary btn text-white">Back To Product</a>
+
+
+<table class="table">
+    <tr>
+        <td>Product Photo</td>
+        <td><img src="data:image;base64,@Model.Photo" width="100" height="150" /></td>
+    </tr>
+    <tr>
+        <td>Product ID</td>
+        <td> @Model.ProductID</td>
+    </tr>
+
+    <tr>
+        <td>Product Name</td>
+        <td> @Model.ProductName</td>
+    </tr>
+
+    <tr>
+        <td>Product Price</td>
+        <td>
+            @if (Model.Price.HasValue)
+            {
+                <span> @Model.Price.Value.ToString("C") </span>
+
+            }
+
+        </td>
+    </tr>
+
+    <tr>
+        <td>Product Date of Purchase</td>
+        <td>
+            @if (Model.DateOfPurchase.HasValue)
+            {
+                <span> @Model.DateOfPurchase.Value.ToString("dd mm yyyy")</span>
+            }
+        </td>
+
+
+    </tr>
+
+    <tr>
+        <td>Product Avaulability Status</td>
+        <td> @Model.AvailabilityStatus</td>
+    </tr>
+
+    <tr>
+        <td>Product Category</td>
+        <td>
+            @if (Model.Category != null)
+            {
+                <span>@Model.Category.CategoryName </span>
+            }
+        </td>
+    </tr>
+
+    <tr>
+        <td>Product Brand </td>
+        <td>
+            @if (Model.Brand != null)
+            {
+                <span> @Model.Brand.BrandName </span>
+            }
+        </td>
+    </tr>
+
+    <tr>
+        <td>Product Active</td>
+        <td> @Model.Active</td>
+    </tr>
+</table>
+
+

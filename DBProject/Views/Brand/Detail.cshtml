@@ -1,0 +1,21 @@
+﻿@model DBProject.Models.Brand
+
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/LayoutPage1.cshtml";
+}
+
+<h2>Detail</h2>
+
+<table class="table">
+<tr>
+    <td>Brand Id </td>
+    <td>@Model.BrandID</td>
+</tr>
+<tr>
+    <td>Brand Name </td>
+    <td>@Model.BrandName</td>
+</tr>
+</table>
+
+<a href="/Brand/Index" class="btn bg-primary text-white">Back</a>

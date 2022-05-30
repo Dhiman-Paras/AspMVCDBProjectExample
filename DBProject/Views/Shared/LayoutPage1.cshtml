@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <script src="~/Scripts/bootstrap.js"></script>
+    <script src="~/Scripts/jquery-3.6.0.js"></script>
+    <script src="~/Scripts/umd/popper.js"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <a class="navbar-brand" href="#">Company</a>
+        <ul class="nav navbar-nav">
+            <li class="nav-item"> <a class="nav-link" href="/Home/Index">Home</a></li>
+            <li class="nav-item"> <a class="nav-link" href="/Brand/Index">Brand</a></li>
+            <li class="nav-item"> <a class="nav-link" href="/Product/Index">Product</a></li>
+            <li class="nav-item"> <a class="nav-link" href="/Category/Index">Category</a></li>
+
+        </ul>
+    </nav>
+
+
+    <div class="container-fluid">
+        @RenderBody()
+    </div>
+</body>
+</html>

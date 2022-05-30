@@ -1,0 +1,22 @@
+﻿@*Detail page of Category Controller*@
+@model DBProject.Models.Category
+
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/LayoutPage1.cshtml";
+}
+
+<h2>Detail</h2>
+
+<table class="table">
+    <tr>
+        <td>Category Id </td> 
+        <td>@Model.CategoryID</td>
+    </tr>
+    <tr>
+        <td>Category Name </td> 
+        <td>@Model.CategoryName</td>
+    </tr>
+</table>
+
+<a href="/Category/Index" class="btn bg-primary text-white">Back</a>

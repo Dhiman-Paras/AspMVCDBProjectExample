@@ -1,0 +1,21 @@
+﻿@*Create Page of Category Controller*@
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/LayoutPage1.cshtml";
+}
+
+<h2>Create</h2>
+
+
+
+<form action="/Category/Create" method="post">
+    <div class="form-row">
+        <div class="col-md-6 ">
+            <label for="CategoryName">Category Name</label>
+            <input type="text" name="CategoryName" placeholder="Category Name"/>
+        </div>
+    </div>
+
+    <input type="submit" class="btn bg-success" />
+    <a href="/Category/Index" class="btn bg-danger">Cancle</a>
+</form>

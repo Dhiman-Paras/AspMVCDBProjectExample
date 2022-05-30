@@ -1,0 +1,36 @@
+﻿@*Index page of Brand Controller*@
+@model List<DBProject.Models.Brand>
+@{
+    ViewBag.Title = "Brands";
+    Layout = "~/Views/Shared/LayoutPage1.cshtml";
+}
+
+<h2>Brands</h2>
+<a href="/Brand/Create">Create</a>
+
+<form action="/Brand/Index" method="post" class="form-inline">
+        <label for="search" class="mr-1">Search</label>
+        <input type="text" placeholder="Search" name="search" value="@ViewBag.Search"class="form-control mr-1" />
+        <button type="submit" class="btn-primary btn text-white">GO</button>
+</form>
+
+
+<table class="table">
+    <tr>
+        <th>Brand ID</th>
+        <th>Brand Name</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.BrandID</td>
+            <td>@item.BrandName</td>
+            <td>  <a href="/Brand/Detail/@item.BrandID">Detail</a>  </td>
+            <td>  <a href="/Brand/Edit/@item.BrandID">Edit</a>  </td>
+            <td>  <a href="/Brand/Delete/@item.BrandID">Delete</a>  </td>
+        </tr>
+
+    }
+
+</table>
+

@@ -1,0 +1,25 @@
+﻿@model DBProject.Models.Category
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/LayoutPage1.cshtml";
+}
+
+<h2>Delete</h2>
+
+<table class="table">
+    <tr>
+        <td>Category Id </td>
+        <td>@Model.CategoryID</td>
+    </tr>
+    <tr>
+        <td>Category Name </td>
+        <td>@Model.CategoryName</td>
+    </tr>
+</table>
+
+<form class="form" action="/Category/Delete/@Model.CategoryID" method="post">
+
+    <button type="submit" class="btn bg-danger text-white" >Delete</button>
+    <a href="/Category/Index" class="btn bg-success text-white">Cancel</a>
+</form>

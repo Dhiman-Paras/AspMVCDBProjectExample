@@ -1,0 +1,98 @@
+﻿
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/LayoutPage1.cshtml";
+}
+
+<h2>Create</h2>
+
+
+@*
+
+    public Nullable<bool> Active { get; set; }
+
+    public virtual Brand Brand { get; set; }
+    public virtual Category Category { get; set; }
+*@
+
+
+<form action="/Product/Create" method="post" enctype="multipart/form-data">
+    @*in this form mulipart/form-data is used to upload the files-img*@
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="ProductName">Product Name</label>
+            <input type="text" placeholder="Product Name" name="ProductName" id="ProductName" class="form-control" />
+
+        </div>
+
+        <div class="form-group col-md-6">
+            <label for="Price">Price</label>
+            <input type="number" placeholder="Price" name="Price" class="form-control" />
+        </div>
+
+        <div class="form-group col-md-6">
+            <label for="DateOfPurchase">Date Of Purchase</label>
+            <input type="date" placeholder="Product ID" name="DateOfPurchase" class="form-control" />
+
+        </div>
+
+        <div class="form-group col-md-6">
+            <label for="AvailabilityStatus">Availability Status</label>
+            <!--input type="text" placeholder="Availability Status" name="AvailabilityStatus" class="form-control" /-->
+            <select name="AvailabilityStatus" class="form-control">
+                <option value="">Please Select</option>
+                <option value="InStock">In Stock</option>
+                <option value="OutOfStock">Out Of Stock</option>
+            </select>
+
+        </div>
+
+        <div class="form-group col-md-6">
+            <label for="CategoryID">Category ID</label>
+            <select name="CategoryID" class="form-control">
+                <option value="">Please Select</option>
+
+                @foreach (var cat in ViewBag.Categories)
+                {
+                    <option value="@cat.CategoryID">@cat.CategoryName</option>
+                }
+            </select>
+
+        </div>
+
+        <div class="form-group col-md-6">
+            <label for="BrandName">Brand ID</label>
+            <select name="BrandID" class="form-control">
+                <option value="">Please Select</option>
+                @foreach (var brand in ViewBag.Brands)
+                {
+                    <option value="@brand.BrandID">@brand.BrandName</option>
+                }
+            </select>
+
+        </div>
+
+    </div>
+
+    <div class="form-group">
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="Active" name="Active">
+            <label class="form-check-label" for="Active">
+                Active
+            </label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="form-check">
+            <label for="Photo"> Upload Image </label>
+            <input class="form-control-file" type="file" id="Photo" name="Photo" />
+        </div>
+    </div>
+
+
+
+    <input type="submit" class="bg-success btn" />
+    <a href="/Product/Index" class="bg-danger btn text-white">Cancle</a>
+
+</form>

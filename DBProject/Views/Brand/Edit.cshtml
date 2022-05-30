@@ -1,0 +1,20 @@
+﻿@model DBProject.Models.Brand
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/LayoutPage1.cshtml";
+}
+
+<h2>Edit</h2>
+
+
+<form class="form" action="/Brand/Edit/@Model.BrandID" method="post">
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <input type="hidden" name="BrandID" value="@Model.BrandID" />
+            <input type="text" name="BrandName" value="@Model.BrandName" class="form-control" />
+        </div>
+    </div>
+    <input type="submit" class="btn bg-success" />
+    <a href="/Brand/Index" class="btn bg-danger">Cancle</a>
+</form>

@@ -1,0 +1,112 @@
+﻿@*Edit page of Product controller*@
+@model DBProject.Models.Product
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/LayoutPage1.cshtml";
+}
+
+<h2>Edit</h2>
+
+<form action="/Product/Edit/@Model.ProductID" method="post" enctype="multipart/form-data">
+    <div class="form-row">
+
+        <div class="form-group col-md-6">
+            <input type="hidden" name="ProductID" value="@Model.ProductID" />
+            <label for="ProductName">Product Name</label>
+            <input type="text" placeholder="Product Name" name="ProductName" id="ProductName" class="form-control" value="@Model.ProductName" />
+        </div>
+
+
+        <div class="form-group col-md-6">
+            <label for="Price">Price</label>
+            <input type="number" placeholder="Price" name="Price" class="form-control" value="@Model.Price" />
+        </div>
+
+
+
+        <div class="form-group col-md-6">
+            @{ //
+                string dop = "";
+                if (Model.DateOfPurchase.HasValue)
+                {
+                    dop = Model.DateOfPurchase.Value.ToString("yyyy-MM-dd");
+                }
+            }
+            <label for="DateOfPurchase">Date Of Purchase</label>
+            <input type="date" placeholder="Product ID" name="DateOfPurchase" class="form-control" value="@dop" />
+
+        </div>
+
+        <div class="form-group col-md-6">
+            <label for="AvailabilityStatus">Availability Status</label>
+            <select name="AvailabilityStatus" class="form-control">
+
+                <option value="@Model.AvailabilityStatus">@Model.AvailabilityStatus</option>
+                <option value="InStock">In Stock</option>
+                <option value="OutOfStock">Out of Stock</option>
+
+            </select>
+        </div>
+
+
+        <div class="form-group col-md-6">
+            <label for="CategoryID">Category</label>
+            <select name="CategoryID" class="form-control">
+                <option value="">Please Select</option>
+
+                @foreach (var cate in ViewBag.Categories)
+                {
+                    if (cate.CategoryID == Model.CategoryID)
+                    {
+                        <option value="@cate.CategoryID" selected="selected">@cate.CategoryName</option>
+                    }
+                    else
+                    {
+                        <option value="@cate.CategoryID">@cate.CategoryName</option>
+                    }
+                }
+            </select>
+
+
+        </div>
+
+
+        <div class="form-group col-md-6">
+            <label for="BrandID">Brand ID</label>
+            <select name="BrandID" class="form-control">
+                <option value="">Please Select</option>
+                @foreach (var brand in ViewBag.Brands)
+                {
+                    if (brand.BrandID == Model.BrandID)
+                    {
+                        <option value="@brand.BrandID" selected="selected">@brand.BrandName</option>
+                    }
+                    else
+                    {
+                        <option value="@brand.BrandID">@brand.BrandName</option>
+                    }
+                }
+            </select>
+        </div>
+        
+        <div class="form-group col-md-6">
+            <img src="data:image;base64,@Model.Photo" width="100" height="150"/> @*display the photo*@
+            
+            <label for="Image">Edit Photo</label>
+            <input type="file"  class="form-control-file" id="Photo" name="Photo" />
+        </div>
+
+    </div>
+    <div class="form-group">
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="Active" name="Active" checked="@Model.Active" value="true">
+            <label class="form-check-label" for="Active">
+                Active
+            </label>
+        </div>
+    </div>
+
+
+    <input type="submit" class="bg-success btn" />
+    <a href="/Product/Index" class="bg-danger btn text-white">Cancle</a>
+</form>
